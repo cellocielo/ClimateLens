@@ -83,7 +83,7 @@ async function loadInfo(day, month, year, feature, lat, lon) {
     function getDates(month, day, year) {
         const dates = [];
         const startDate = new Date(year, month - 1, day);
-        const endDate = new Date();
+        const endDate = new Date(new Date().setMonth(new Date().getMonth() - 2));
     
         for (let d = startDate; d <= endDate; d.setDate(d.getDate() + 20)) {
             const formattedMonth = d.getMonth() + 1;
@@ -220,7 +220,7 @@ async function loadInfo(day, month, year, feature, lat, lon) {
             await getData(feature);
         }
         catch (error) {
-            console.error("Error loading heatmaps:", error);
+            console.error("Error loading line charts:", error);
         } finally {
             loadingScreen.style.display = "none";
         }

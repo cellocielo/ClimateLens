@@ -1,3 +1,5 @@
+localStorage.clear();
+
 let datasets = JSON.parse(localStorage.getItem('datasets')) || [];
 let currentDataset = JSON.parse(localStorage.getItem('currentDataset')) || {};
 let id = 0;

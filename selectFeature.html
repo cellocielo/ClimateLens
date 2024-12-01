@@ -74,7 +74,6 @@
                         <button type = "button" id="twoRegions">Two Regions</button>
                     </div>
                     <div class="block">
-                        <button type = "button" id="onePoint">One Point</button>
                         <button type = "button" id="twoPoints">Two Points</button>
                     </div>
                 </div>
@@ -124,24 +123,13 @@
                 const arrow2 = document.getElementById('down-arrow2');
                 
                 document.getElementById("submit2").addEventListener('click', () => {
-                    const isVisible = onePoint.style.opacity === "1";
-                    onePoint.style.opacity = isVisible ? "0" : "1";
-                    twoPoints.style.opacity = isVisible ? "0" : "1";
+                    if (twoPoints.style.opacity === "1") {
+                        twoPoints.style.opacity = "0";
+                    } else {
+                        twoPoints.style.opacity = "1";
+                    }
                     arrow2.classList.toggle('rotate');
                 });
-                onePoint.addEventListener('click', function() {
-                    checkboxes.forEach(function(checkbox) {
-                        if (checkbox.checked) {
-                            features.push(checkbox.value);
-                        }
-                    })
-                    localStorage.setItem("features", features);
-                    document.body.classList.add('slide-out');
-                    
-                    setTimeout(() => {
-                        window.location.href = "selectPoint.html";
-                    }, 500);
-                })
                 twoPoints.addEventListener('click', function() {
                     checkboxes.forEach(function(checkbox) {
                         if (checkbox.checked) {
