@@ -1,3 +1,5 @@
+
+
 function getZoomLevel(area) {
     if (area < 1000) return 12;
     if (area < 10000) return 10;
@@ -103,11 +105,10 @@ const sidebar = document.getElementById("sidebar");
 
                 unit = units[selectedFeature];
 
-                // Clear previous labels if necessary
                 gradientBox.innerHTML = '';
                 const valuesList = {
-                    temperature_2m_max: [-20, 0, 10, 20, 30, 40, 50],
-                    temperature_2m_min: [-20, 0, 10, 20, 30, 40, 50],
+                    temperature_2m_max: [-10, 10, 20, 30, 40, 50],
+                    temperature_2m_min: [-10, 10, 20, 30, 40, 50],
                     precipitation_sum: [1, 4, 8, 16, 32],
                     daylight_duration: [0, 10000, 30000, 50000, 86400],
                     snowfall_sum: [0, 10, 25, 50],
@@ -317,14 +318,14 @@ function getColorForValue(value, feature) {
             else if (value <= 50) return 'red';
             return 'darkred';
 
-            case 'precipitation_sum': // (mm)
+            case 'precipitation_sum':
             if (value <= 1) return 'white';
             else if (value <= 4) return 'lightblue';
             else if (value <= 8) return 'blue';
             else if (value <= 16) return 'purple';
             else if (value <= 32) return 'darkpurple';
 
-        case 'daylight_duration': // (seconds)
+        case 'daylight_duration':
             if (value <= 0) return '#00274D';
             else if (value <= 10000) return '#1B6CA8';
             else if (value <= 30000) return '#56B4E9';
@@ -332,21 +333,21 @@ function getColorForValue(value, feature) {
             else if (value <= 86400) return '#FFD700';
             return '#000033';
 
-        case 'snowfall_sum': // (cm)
+        case 'snowfall_sum':
             if (value <= 0) return 'white';
             else if (value <= 10) return 'lightblue';
             else if (value <= 25) return 'blue';
             else if (value <= 50) return 'darkblue';
             return 'purple';
 
-        case 'sunshine_duration': // (hours)
+        case 'sunshine_duration':
             if (value <= 7200) return 'lightgray';
             else if (value <= 21600) return 'yellow';
             else if (value <= 43200) return 'orange';
             else if (value <= 86000) return 'red';
             return 'darkred';
 
-        case 'shortwave_radiation_sum': // (MJ/m²)
+        case 'shortwave_radiation_sum':
             if (value <= 2) return 'lightyellow';
             else if (value <= 5) return 'yellow';
             else if (value <= 10) return 'orange';
