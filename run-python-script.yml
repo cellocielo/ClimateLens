@@ -1,0 +1,21 @@
+name: Run Python Script
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Set up Python 3.x
+    uses: actions/setup-python@v3
+    with:
+      python-version: '3.x'
+
+    - name: Run process_data.py
+      run: python3 process_data.py
