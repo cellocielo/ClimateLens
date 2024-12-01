@@ -1,0 +1,51 @@
+body {
+    background-color: #2E2E2E;
+    margin: 0;
+    padding: 0;
+    font-family: "Raleway";
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.section {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#map-1, #map-2 {
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+}
+
+#submit {
+    width: 75px;
+    height: 75px;
+    background: rgba(128, 128, 128, 0.5);
+    border-radius: 50px;
+    border: 2px solid #D3D3D3;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 40px;
+    display: block;
+    margin: 0 auto;
+}
+
+#submit:hover {
+    background: rgba(200, 200, 200, 0.8);
+}
+
+#dataset-region , #application-region {
+    color: white;
+}

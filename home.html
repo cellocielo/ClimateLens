@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+    <html lang = "en">
+        <head>
+            <meta charset = "utf-8">
+            <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+            <title>DataDiet</title>
+            <link rel = "stylesheet" href = "./home-style.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+            
+        </head>
+
+        <body>
+            <form action = "#">
+                <!---<div class="search">
+                    <span class="search-icon material-symbols-outlined">search</span>
+                    <input id="search-input" type="search" placeholder="Search My Datasets">
+                </div>-->
+            </form>
+            <div class="slider-container">
+                <div class="slides">
+                    <div class = "crop-container">
+                        <img src="desert.webp" class = "image"/>
+                    </div>
+                    <div class="crop-container">
+                        <img src="climate change img2.webp" class = "image"/>
+                    </div>
+                    <div class="crop-container">
+                        <img src="rainforest.webp" class = "image"/>
+                    </div>
+                    <div class="crop-container">
+                        <img src="mountains.jpg" class = "image"/>
+                    </div>
+                    <div class="crop-container">
+                        <img src="desert.webp" class = "image"/>
+                    </div>
+                </div>
+            </div>
+            <div id="page-container">
+                <h1 id="slogan">Explore Earth's Climate.</h1>
+                <p id = "desc">
+                    Analyze the geographic statistics and trends of your area of interest.
+                </p>
+                <button id = "explore" class = "button">Explore <span class="material-symbols-outlined right-arrow"> arrow_forward </span></button>
+                <h1 id = "feature-message">Scroll Down To See List of Features <span class="material-symbols-outlined down-arrow">arrow_downward</span></h1>
+            </div>
+            <div id="about">
+                <h2 id="learn-features">Features</h2>
+                <div id="one" class = "sec">
+                    <h2 class="feature">Maximum Temperature: </h2>
+                    <p class="text">Maximum Temperature recorded daily.</p>
+                </div>
+                <div class="divider"></div>
+                <div id="two" class = "sec">
+                    <h2 class="feature">Minimum Temperature: </h2>
+                    <p class="text">Minumum Temperature recorded daily.</p>
+                </div>
+                <div class="divider"></div>
+                <div id="three" class = "sec">
+                    <h2 class="feature">Precipitation Sum: </h2>
+                    <p class="text">Total amount of precipitation received in a day.</p>
+                </div>
+                <div class="divider"></div>
+                <div id="four" class = "sec">
+                    <h2 class="feature">Snowfall Sum: </h2>
+                    <p class="text">Total amount of snowfall received in day.</p>
+                </div>
+                <div class="divider"></div>
+                <div id="five" class = "sec">
+                    <h2 class="feature">Daylight Duration: </h2>
+                    <p class="text">Number of seconds of daylight over a day.</p>
+                </div>
+                <div class="divider"></div>
+                <div id="six" class = "sec">
+                    <h2 class="feature">Sunshine Duration: </h2>
+                    <p class="text">Number of seconds of sunshine over a day, when irradiance is greater than 120 W/m^2.</p>
+                </div>
+                <div class="divider"></div>
+                <div id="seven" class = "sec">
+                    <h2 class="feature">Shortwave Radiation Sum: </h2>
+                    <p class="text">Sum of solar radiation over a day.</p>
+                </div>
+                <div class="divider"></div>
+                <div id="eight" class = "sec">
+                    <h2 class="feature">Maximum Wind Speed (10m): </h2>
+                    <p class="text">Maximum Wind Speed over a day.</p>
+                </div>
+                <div class="divider"></div>
+                <div id="nine" class = "sec">
+                    <h2 class="feature">Maximum Wind Gusts (10m): </h2>
+                    <p class="text">Maximum Wind Gust over a day.</p>
+                </div>
+                <div class="divider"></div>
+                <div id="ten" class = "sec">
+                    <h2 class="feature">Reference Evapotranspiration (ET₀): </h2>
+                    <p class="text">Total water loss from a grass field in one day.</p>
+                </div>
+            </div>
+            <script>
+                document.getElementById('explore').addEventListener("click", function() {
+                    window.location.href = "general-info.html";
+                })
+            </script>
+            <script src = "template.js"></script>
+            <script src = "database.js"></script>
+        </body>
+    </html>

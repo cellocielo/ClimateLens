@@ -1,0 +1,10 @@
+#title-1{
+    color: white;
+    margin-left: 40px;
+}
+
+#graphContainer {
+    margin-left: 60px;
+    position: relative;
+    top: 20px;
+}

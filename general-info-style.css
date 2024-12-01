@@ -1,0 +1,131 @@
+body {
+    background-color: #2E2E2E;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container div {
+    margin-bottom: 60px;
+}
+
+.date-of-creation-container {
+    margin-top: 20px;
+}
+
+#name-container {
+    margin-top: 50px;
+}
+
+#dataset-name-title {
+    font-family: "Inter";
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#gen-info-title {
+    color: white;
+    font-size: 40px;
+    margin-top: 45px;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    background: inherit;
+    position: relative;
+}
+
+#dataset-name {
+    width: 500px;
+}
+
+
+
+.input-field:focus-within {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+#date-creation-title {
+    font-family: "Inter", sans-serif;
+    color: white;
+    font-size: 35px;
+    font-weight: 500;
+    text-align: center;
+}
+
+#day-dropdown, #year-dropdown {
+    margin-left: 20px;
+}
+
+#month-dropdown, 
+#day-dropdown, 
+#year-dropdown, 
+#select-field {
+    border: none;
+    display: inline-block;
+    background-color: #444;
+    color: #FFFFFF;
+    margin-top: 20px;
+    font-family: "Inter", sans-serif;
+    padding: 7px;
+    border-radius: 10px;
+    font-size: 17px;
+    outline: none;
+    transition: border-color 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#month-dropdown:hover, 
+#day-dropdown:hover, 
+#year-dropdown:hover, 
+#select-field:hover {
+    border-color: #007BFF;
+}
+
+#month-dropdown:focus, 
+#day-dropdown:focus, 
+#year-dropdown:focus, 
+#select-field:focus {
+    border-color: #007BFF;
+    background-color: #555;
+}
+
+button {
+    width: 200px;
+    height: 50px;
+    background: rgba(128, 128, 128, 0.5);
+    border-radius: 30px;
+    border: 2px solid #D3D3D3;
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 60px;
+}
+
+button {
+    background: rgba(128, 128, 128, .4);
+}
+
+button:hover {
+    background: rgba(128, 128, 128, .2);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+#submit {
+    font-size: 20px;
+    width: 150px;
+}
+
+#center {
+    display: flex;
+    justify-content: center;
+}

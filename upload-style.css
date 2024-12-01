@@ -1,0 +1,92 @@
+body {
+    background-color: #2E2E2E;
+}
+
+#upload-title {
+    position: absolute;
+    color: white;
+    font-family: "Raleway";
+    font-weight: 500;
+    font-size: 50px;
+    left: 475px;
+    top: 150px;
+}
+
+#drop-area {
+    width: 600px;
+    height: 250px;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 2px dashed gray;
+    gap: 0px;
+    margin-top: 30px;
+    transition: color .25s;
+    position: absolute;
+    top: 225px;
+    left: 375px;
+}
+
+#file-input {
+    width: 200px;
+    margin-top: 30px;
+    opacity: 0;
+}
+#drop-box-title {
+    color: white;
+    margin-top: 10px;
+    font-family: "Inter", sans-serif;
+    background: transparent;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 300;
+}
+
+#upload-icon {
+    color: white;
+    font-size: 60px;
+    opacity: 1;
+    margin-top: 50px;
+}
+
+#file-name {
+    font-family: "Open Sans", sans-serif;
+    color: white;
+}
+
+
+#next {
+    width: 200px;
+    height: 50px;
+    background-color: #2E3B4E;
+    border-radius: 25px;
+    border: 2px solid #2E3B4E;
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+    position: absolute;
+    top: 650px;
+    left: 615px;
+}
+
+#next:hover {
+    background-color: #4B6078;
+    border: 2px solid #4B6078;
+
+}
+
+#next:active {
+    transform: translateY(1px);
+}

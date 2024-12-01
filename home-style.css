@@ -1,0 +1,381 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    font-family: "Raleway";
+    display: flex;
+    justify-content: space-between;
+    
+    padding: 30px 10%;
+    background: #2E3B4E;
+    position: sticky;
+    overflow: hidden;
+}
+
+
+#title {
+    background: #2E3B4E;
+    cursor: pointer;
+    color: #F2F2F2;
+    position: relative;
+    bottom: 5px;
+}
+
+#search-icon {
+    font-size: 40px;
+    position: relative;
+    top: 10px;
+}
+
+
+.nav-bar-element {
+    font-family: "Inter";
+    font-weight: 600;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+}
+
+nav {
+    position: relative;
+    bottom: 5px;
+    background: #2E3B4E;
+}
+.nav__links {
+    list-style: none;
+    background: #2F3B3D;
+    position: relative;
+    top: 10px;
+
+}
+
+#shade-area {
+    position: absolute;
+    top: 0px;
+    background: #2E3B4E;
+    width: 100%;
+    height: 100px;
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0px 30px;
+    background: #2E3B4E;
+}
+
+.nav__links li a {
+    position: relative;
+    background: #2E3B4E;
+    padding: 10px 5px 0;
+    color: #F2F2F2;
+}
+.nav__links li a:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: white;
+    display: block;
+    opacity: 0;
+    transition: all .2s;
+}
+
+.nav__links li a:hover:after {
+    opacity: 1;
+}
+
+.search {
+    margin: 60px auto 0;
+    --padding: 14px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: var(--padding);
+    border-radius: 28px; 
+    background: #ffffff;
+    transition: box-shadow 0.25s;
+}
+#search-input {
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+    color: #333333;
+    margin-left: var(--padding);
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 600px;
+}
+
+.search:focus-within {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+
+.search-input:placeholder, .search-icon {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.search-icon {
+    background: #FFFFFF;
+}
+
+.dataset-icon, .plus-icon {
+    background: inherit;
+    position: relative;
+    padding: 0 2px;
+    top: 5px;
+    
+}
+
+.input-field {
+    width: 100%;
+    background: #444;
+    border: 2px solid #4A90E2;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    height: 50px;
+    padding-left: 40px;
+    padding-right: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: #FFFFFF;
+    transition: box-shadow 0.3s, border-color 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.input-field::placeholder {
+    color: #b3b3b3;
+    opacity: 1;
+}
+
+.input-field:hover {
+    border-color: #007BFF;
+}
+
+.input-field:focus {
+    border-color: #007BFF;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.5);
+    background: #555;
+}
+
+#about * {
+    font-family: "Inter", sans-serif;
+}
+
+#add, #view {
+    display: inline-block;
+}
+
+#add {
+    width: 50%;
+}
+
+.crop-container {
+    width: 100%;
+    height: 400px;
+    position: relative;
+}
+.crop-container .image {
+    width: 100%;
+    max-height: 700px;
+    opacity: 0.7;
+    filter: brightness(0.4) saturate(.8);
+    position: absolute;
+    overflow: hidden;
+}
+
+
+.slide-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    transform: translate(-50%, -50%);
+}
+
+.slides {
+    display: flex;
+    width: calc(100% * 5);
+    animation: slide 30s infinite;
+}
+
+.slide {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0); /* Show the first image */
+    }
+    20% {
+        transform: translateX(0); /* Stay on the first image for 2 seconds */
+    }
+    25% {
+        transform: translateX(-20%); /* Transition to the second image */
+    }
+    45% {
+        transform: translateX(-20%); /* Stay on the second image for 5 seconds */
+    }
+    50% {
+        transform: translateX(-40%); /* Transition to the third image */
+    }
+    70% {
+        transform: translateX(-40%); /* Stay on the third image for 5 seconds */
+    }
+    75% {
+        transform: translateX(-60%); /* Transition to the fourth image */
+    }
+    95% {
+        transform: translateX(-60%); /* Stay on the fourth image for 5 seconds */
+    }
+    100% {
+        transform: translateX(-80%); /* Prepare to cycle back to the start */
+    }
+}
+
+#slogan {
+    position: relative;
+    color: #F2F2F2;
+    font-family: "Raleway";
+    font-weight: 500;
+    font-size: 60px;
+    top: -250px;
+    left: 150px;
+}
+
+#desc {
+    position: relative;
+    color: #F2F2F2;
+    font-family: "Inter";
+    font-weight: 300;
+    font-size: 20px;
+    top: -220px;
+    left: 150px;
+    max-width: 700px;
+}
+
+button {
+    width: 200px;
+    height: 50px;
+    background: rgba(128, 128, 128, 0.5);
+    border-radius: 30px;
+    border: 2px solid #D3D3D3;
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#explore {
+    position: relative;
+    bottom: 100px;
+    left: 150px;
+    font-size: 30px;
+    height: 70px;
+}
+
+.right-arrow {
+    transform: scale(1.2);
+    position: relative;
+    top: 3px;
+    left: 3px;
+
+}
+
+#my-datasets {
+    position: relative;
+    left: 200px;
+}
+
+button {
+    background: rgba(128, 128, 128, .6);
+}
+
+button:hover {
+    background: rgba(128, 128, 128, .3);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+#about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2E2E2E;
+    margin: 0;
+    padding: 60px;
+    font-family: "Raleway";
+    margin-top: 73px;
+    color: white;
+}
+
+.sec h2 {
+    font-size: 1.5em;
+}
+
+.sec p {
+    font-size: 1.5em;
+    margin-bottom: 8px;
+    margin-left: 10px;
+}
+
+.sec {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.sec:hover {
+    background: #7D7D7D;
+}
+
+.text{
+    margin-top: 10px;
+}
+
+.feature {
+    font-size: 35px;
+}
+
+#learn-features {
+    text-align: center;
+    font-size: 50px;
+}
+
+.divider {
+    height: 1px;
+    width: 80%;
+    background-color: #696969;
+}
+
+#feature-message {
+    text-align: center;
+    font-family: "Raleway";
+    font-weight: 500;
+    position: relative;
+    bottom: 50px;
+    color: white;
+}
+
+.down-arrow {
+    transform: scale(1.4);
+    color: white;
+    position: relative;
+    top: 3px;
+    margin-left: 10px;
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+    <html lang = "en">
+        <head>
+            <meta charset = "utf-8">
+            <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+            <title>Create</title>
+            <link rel = "stylesheet" href = "./home-style.css">
+            <link rel = "stylesheet" href = "./select-style.css">
+            <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        </head>
+        <body>
+            <h1 id = "select-title">Select Relevant Features</h1>
+            <form action="" id="select-form">
+                <div id="all-checkboxes">
+                    <div id="group-1">
+                        <div class="group">
+                            <input type="checkbox" id="max-temp" value="temperature_2m_max" class = "custom-checkbox">
+                            <label for="max-temp" class="checkbox-label">Maximum Temperature (2m)</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="min-temp" value="temperature_2m_min" class = "custom-checkbox">
+                            <label for="min-temp" class="checkbox-label"> Minimum Temperature (2m)</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="precipitation" value="precipitation_sum" class = "custom-checkbox">
+                            <label for="precipitation" class="checkbox-label">Precipitation Sum</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="snowfall" value="snowfall_sum" class = "custom-checkbox">
+                            <label for="snowfall" class="checkbox-label">Snowfall Sum</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="daily_duration" value="daylight_duration" class = "custom-checkbox">
+                            <label for="daylight_duration" class="checkbox-label">Daylight Duration</label>
+                        </div>
+                    </div>
+                    <div id="group-2">
+                        <div class="group">
+                            <input type="checkbox" id="sunshine" value="sunshine_duration" class = "custom-checkbox">
+                            <label for="sunshine" class="checkbox-label">Sunshine Duration</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="radiation" value="shortwave_radiation_sum" class = "custom-checkbox">
+                            <label for="radiation" class="checkbox-label">Shortwave Radiation Sum</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="wind-speed" value="wind_speed_10m_max" class = "custom-checkbox">
+                            <label for="wind-speed" class="checkbox-label">Maximum Wind Speed (10 m)</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="wind-gusts" value="wind_gusts_10m_max" class = "custom-checkbox">
+                            <label for="wind-gusts" class="checkbox-label">Maximum Wind Gusts (10 m)</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="evapotranspiration" value="et0_fao_evapotranspiration" class = "custom-checkbox">
+                            <label for="evapotranspiration" class="checkbox-label">Reference Evapotranspiration (ET₀)</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="inline">
+                    <button type = "button" id="submit">Explore Regional Data <span class="material-symbols-outlined" id = "down-arrow">
+                        arrow_forward_ios
+                        </span></button>
+                    <button type = "button" id="submit2">Explore Historical Trends <span class="material-symbols-outlined" id = "down-arrow2">
+                        arrow_forward_ios
+                        </span></button>
+                </div>
+                <div class="inline">
+                    <div class="block">
+                        <button type = "button" id="oneRegion">One Region</button>
+                        <button type = "button" id="twoRegions">Two Regions</button>
+                    </div>
+                    <div class="block">
+                        <button type = "button" id="onePoint">One Point</button>
+                        <button type = "button" id="twoPoints">Two Points</button>
+                    </div>
+                </div>
+            </form>
+            <script>
+                const features = [];
+                let checkboxes = document.querySelectorAll("input[type = checkbox]");
+
+                const oneRegion = document.getElementById("oneRegion");
+                const twoRegions = document.getElementById("twoRegions");
+                const arrow = document.getElementById('down-arrow');
+                document.getElementById("submit").addEventListener('click', () => {
+                    const isVisible = oneRegion.style.opacity === "1";
+                    oneRegion.style.opacity = isVisible ? "0" : "1";
+                    twoRegions.style.opacity = isVisible ? "0" : "1";
+                    arrow.classList.toggle('rotate');
+                });
+                oneRegion.addEventListener('click', function() {
+                    checkboxes.forEach(function(checkbox) {
+                        if (checkbox.checked) {
+                            features.push(checkbox.value);
+                        }
+                    })
+                    localStorage.setItem("features", features);
+                    document.body.classList.add('slide-out');
+                    
+                    setTimeout(() => {
+                        window.location.href = "selectRegion.html";
+                    }, 500);
+                })
+                twoRegions.addEventListener('click', function() {
+                    checkboxes.forEach(function(checkbox) {
+                        if (checkbox.checked) {
+                            features.push(checkbox.value);
+                        }
+                    })
+                    localStorage.setItem("features", features);
+                    document.body.classList.add('slide-out');
+                    
+                    setTimeout(() => {
+                        window.location.href = "selectRegions.html";
+                    }, 500);
+                })
+
+                const onePoint = document.getElementById("onePoint");
+                const twoPoints = document.getElementById("twoPoints");
+                const arrow2 = document.getElementById('down-arrow2');
+                
+                document.getElementById("submit2").addEventListener('click', () => {
+                    const isVisible = onePoint.style.opacity === "1";
+                    onePoint.style.opacity = isVisible ? "0" : "1";
+                    twoPoints.style.opacity = isVisible ? "0" : "1";
+                    arrow2.classList.toggle('rotate');
+                });
+                onePoint.addEventListener('click', function() {
+                    checkboxes.forEach(function(checkbox) {
+                        if (checkbox.checked) {
+                            features.push(checkbox.value);
+                        }
+                    })
+                    localStorage.setItem("features", features);
+                    document.body.classList.add('slide-out');
+                    
+                    setTimeout(() => {
+                        window.location.href = "selectPoint.html";
+                    }, 500);
+                })
+                twoPoints.addEventListener('click', function() {
+                    checkboxes.forEach(function(checkbox) {
+                        if (checkbox.checked) {
+                            features.push(checkbox.value);
+                        }
+                    })
+                    localStorage.setItem("features", features);
+                    document.body.classList.add('slide-out');
+                    
+                    setTimeout(() => {
+                        window.location.href = "selectPoints.html";
+                    }, 500);
+                })
+            </script>
+            <script src = "template.js"></script>
+        </body>
+</html>

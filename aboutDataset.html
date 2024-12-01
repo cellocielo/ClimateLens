@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataDiet</title>
+    <link rel="stylesheet" href="./home-style.css">
+    <link rel="stylesheet" href="./aboutDataset-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+    <div id="body">
+        <div id="main">
+            <h1 id="dataset-title"></h1>
+            <button id="use">Use</button>
+            <div id="dataset-label">
+                <div class="info-section">
+                    <h1 id="data-size-header">Data Size</h1>
+                    <h2 id="data-size">Size info</h2>
+                </div>
+            </div>
+
+            <div id="desc-container">
+                <h2 id="description-title">Description</h2>    
+                <p id="description"></p>
+            </div>
+
+            <div id="collection-info">
+                <h2 id="collection-info-title">Dataset Collection Information</h2>
+                <div class="info-section">
+                    <h1 id="data-source-header">Data Source</h1>
+                    <h2 id="data-source">Source info</h2>
+                </div>
+                <div class="info-section">
+                    <h1 id="source-of-collection-header">Source</h1>
+                    <h2 id="source-of-collection"></h2>
+                </div>
+                <div class="info-section">
+                    <h1 id="date-range-of-collection-header">Date Range of Collection</h1>
+                    <h2 id="date-range-of-collection"></h2>
+                </div>
+                <div class="info-section">
+                    <h1 id="collection-method-header">Collection Method</h1>
+                    <h2 id="collection-method"></h2>
+                </div>
+            </div>
+
+            <div id="general-warnings-container">
+                <h2 id="general-warnings-title">General Warnings</h2>
+                <div id="general-warnings-container">
+                    <template id = "general-warnings-template"><li class="general-warning"></li></template>
+                </div>
+            </div>
+
+            <h2 id="table-title">Dataset Table</h2>
+            <div id="table-container"><table id="table"></table></div>
+            <div id="batch-warnings"></div>
+            <form action="" id="select-features">
+                <div id="feature-checkbox-container">
+                    <h2 id="feature-title">Features</h2>
+                    <template id="feature-template">
+                        <div class="inline-container">
+                            <input type="checkbox" class="feature-checkbox" id = "feature-checkbox">
+                            <label for="feature-checkbox" class = "feature-label"></label>
+                        </div>
+                    </template>
+                </div>
+                <button id = "submit">Submit</button>
+            </form>
+            <div id="select-feature-output-container">
+                <template id = "feature-sec-template">
+                    <div class="feature-sec">
+                        <h2 class="feature-output-name"></h2>
+                    </div>
+                </template>
+                <template id = "feature-warning-output-template">
+                    <li class = "feature-warning-output"></li>
+                </template>
+            </div>
+        </div>
+        <div id="side-bar">
+            <button id="download">Download</button>
+            <h2 id="contact-info-header" class = "header">Contact Information</h2>
+            <h2 id="contact-info" class = "info"></h2>
+            <h2 id="creator-name-header" class = "header">Creator Name(s)</h2>
+            <div id="creator-name-container"></div>
+            <template id="creator-name-template">
+                <h2 class="creator-name info"></h2>
+            </template>
+            <h2 id="date-of-creation-header" class = "header">Date Of Creation</h2>
+            <h2 id="date-of-creation" class = "info"></h2>
+        </div>
+    </div>
+    <script src="aboutDataset.js"></script>
+    <script src="template.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script>
+        function title() {
+            const title = document.getElementById('dataset-title');
+            title.textContent = dataset.generalInfo.name;
+        }
+
+        function description() {
+            const description = document.getElementById('description');
+            description.textContent = dataset.generalInfo.description;
+        }
+
+        function getContactInfo() {
+            const contactInfo = document.getElementById('contact-info');
+            contactInfo.textContent = dataset.generalInfo.contactInfo;
+        }
+
+        function getCreatorNames() {
+            let creatorNames = dataset.generalInfo.creatorNames;
+            let creatorNameContainer = document.getElementById('creator-name-container');
+            let creatorNameTemplate = document.getElementById('creator-name-template');
+            creatorNames.forEach(function (element) {
+                const clone = document.importNode(creatorNameTemplate.content, true);
+                const h2Element = clone.querySelector('.creator-name');
+                h2Element.textContent = element;
+                creatorNameContainer.append(clone);
+            });
+        }
+
+        function getGeneralWarnings() {
+            let generalWarnings = dataset.advice.generalWarnings;
+            let generalWarningsContainer = document.getElementById('general-warnings-container');
+            let generalWarningTemplate = document.getElementById('general-warnings-template');
+            generalWarnings.forEach(function (element) {
+                const clone = document.importNode(generalWarningTemplate.content, true);
+                const liElement = clone.querySelector('.general-warning');
+                liElement.textContent = element;
+                generalWarningsContainer.append(clone);
+            });
+        }
+
+        function getDate() {
+            let month = dataset.generalInfo.month;
+            let day = dataset.generalInfo.day;
+            let year = dataset.generalInfo.year;
+            let dateOfCreation = document.getElementById('date-of-creation');
+            dateOfCreation.textContent = month + " " + day + ", " + year;
+        }
+
+        function getPreview() {
+            let dataSize = document.getElementById('data-size');
+            dataSize.textContent = dataset.metadata.dataSizeRow + " x " + dataset.metadata.dataSizeColumn;
+        }
+
+        function getCollectionInfo() {
+            let dataSource = document.getElementById('data-source');
+            dataSource.textContent = dataset.metadata.dataSource;
+            let dateRange = document.getElementById('date-range-of-collection');
+            dateRange.textContent = dataset.metadata.dateRangeCollection;
+            let collectionSource = document.getElementById('source-of-collection');
+            collectionSource.textContent = dataset.metadata.sourceOfCollection;
+            let collectionMethod = document.getElementById('collection-method');
+            collectionMethod.textContent = dataset.metadata.dateCollectionMethod;
+        }
+
+        document.getElementById('use').addEventListener('click', function() {
+            window.location.href = "use.html";
+        })
+
+        title();
+        description();
+        getContactInfo();
+        getCreatorNames();
+        getDate();
+        getCollectionInfo();
+        getGeneralWarnings();
+        getPreview();
+    </script>
+</body>
+</html>

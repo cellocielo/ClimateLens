@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+    <html lang = "en">
+        <head>
+            <meta charset = "utf-8">
+            <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+            <title>Select Region</title>
+            <link rel = "stylesheet" href = "./home-style.css">
+            <link rel = "stylesheet" href = "./select-regions-style.css">
+            <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+            <link rel="stylesheet" href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css" />
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        </head>
+        <body>
+            <div class="container">
+                <div class="section">
+                    <h2 id="dataset-region">Region 1</h2>
+                    <div id="map-1"></div>
+                </div>
+            </div>
+            <button id = "submit"><span class="material-symbols-outlined" id = "forward-logo">arrow_forward_ios</span></button>
+            <script>
+                document.getElementById("submit").addEventListener("click", function() {
+                    window.location.href = "heatmap.html"
+                })
+            </script>
+
+            <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+            <script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
+            <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+            <script src="https://unpkg.com/@turf/turf/turf.min.js"></script>
+            <script src = "selectRegion.js"></script>
+            <script src = "template.js"></script>
+        </body>
+</html>
