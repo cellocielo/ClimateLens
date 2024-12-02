@@ -1,4 +1,6 @@
-
+fetch('http://127.0.0.1:5000/some-endpoint')
+    .then(response => response.json())
+    .then(data => console.log(data));
 
 function getZoomLevel(area) {
     if (area < 1000) return 12;
