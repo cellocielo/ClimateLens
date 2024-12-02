@@ -1,3 +1,7 @@
+import logging
+import logging.handlers
+import os
+import requests
 import numpy as np
 from flask_cors import CORS
 import openmeteo_requests
@@ -5,9 +9,28 @@ import requests_cache
 import pandas as pd
 from retry_requests import retry
 from datetime import datetime, timedelta
+from flask import Flask, jsonify, request
+
 
 from flask import Flask, jsonify, request
 app = Flask(__name__)
+@app.route('/run-script', methods=['GET'])
+@app.before_first_request
+def run_script_on_startup():
+    try:
+        os.system("python3 process_data.py")  # Runs your script automatically
+        print("Script executed successfully on app startup.")
+    except Exception as e:
+        print(f"Error executing the script: {e}")
+
+def run_script():
+    try:
+        os.system("python3 process_data.py")
+        return jsonify({"status": "success", "message": "Script executed successfully"})
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)})
+    
+
 CORS(app, resources={r"/daily-dataframe": {"origins": "http://127.0.0.1:5500"}})
 cache_session = requests_cache.CachedSession('.cache', expire_after = 3600)
 retry_session = retry(cache_session, retries = 5, backoff_factor = 0.2)
